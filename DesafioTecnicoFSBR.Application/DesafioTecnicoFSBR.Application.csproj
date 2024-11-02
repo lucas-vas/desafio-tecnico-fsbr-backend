@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\Brand\Commands\Delete\" />
+    <Folder Include="Features\Brand\Commands\Update\" />
+    <Folder Include="Features\Brand\Queries\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DesafioTecnicoFSBR.Domain\DesafioTecnicoFSBR.Domain.csproj" />
+    <ProjectReference Include="..\DesafioTecnicoFSBR.Infra\DesafioTecnicoFSBR.Infra.csproj" />
+  </ItemGroup>
+
+</Project>

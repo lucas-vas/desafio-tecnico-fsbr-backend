@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34309.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioTecnicoFSBR.Api", "DesafioTecnicoFSBR.Api\DesafioTecnicoFSBR.Api.csproj", "{329BEC3A-784F-48D3-B211-9B319BE2B961}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioTecnicoFSBR.Domain", "DesafioTecnicoFSBR.Domain\DesafioTecnicoFSBR.Domain.csproj", "{C7E7AE69-C33B-426E-8560-FE85E3AD97AE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioTecnicoFSBR.Infra", "DesafioTecnicoFSBR.Infra\DesafioTecnicoFSBR.Infra.csproj", "{C77FCB83-050F-4A01-9D15-C094C0EB241D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C7E7AE69-C33B-426E-8560-FE85E3AD97AE} = {C7E7AE69-C33B-426E-8560-FE85E3AD97AE}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioTecnicoFSBR.Application", "DesafioTecnicoFSBR.Application\DesafioTecnicoFSBR.Application.csproj", "{EFFAC9D1-49C0-4B29-9003-21C3FFE24914}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioTecnicoFSBR.Identity", "DesafioTecnicoFSBR.Identity\DesafioTecnicoFSBR.Identity.csproj", "{8FBF2320-07CD-46B0-83A5-570075E0B410}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Itens de Solução", "Itens de Solução", "{054520B5-74C3-4532-8A30-EBAAB60DF3C7}"
+	ProjectSection(SolutionItems) = preProject
+		gitignore = gitignore
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{329BEC3A-784F-48D3-B211-9B319BE2B961}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{329BEC3A-784F-48D3-B211-9B319BE2B961}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{329BEC3A-784F-48D3-B211-9B319BE2B961}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{329BEC3A-784F-48D3-B211-9B319BE2B961}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7E7AE69-C33B-426E-8560-FE85E3AD97AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7E7AE69-C33B-426E-8560-FE85E3AD97AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7E7AE69-C33B-426E-8560-FE85E3AD97AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7E7AE69-C33B-426E-8560-FE85E3AD97AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C77FCB83-050F-4A01-9D15-C094C0EB241D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C77FCB83-050F-4A01-9D15-C094C0EB241D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C77FCB83-050F-4A01-9D15-C094C0EB241D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C77FCB83-050F-4A01-9D15-C094C0EB241D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFFAC9D1-49C0-4B29-9003-21C3FFE24914}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFFAC9D1-49C0-4B29-9003-21C3FFE24914}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFFAC9D1-49C0-4B29-9003-21C3FFE24914}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFFAC9D1-49C0-4B29-9003-21C3FFE24914}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FBF2320-07CD-46B0-83A5-570075E0B410}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FBF2320-07CD-46B0-83A5-570075E0B410}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FBF2320-07CD-46B0-83A5-570075E0B410}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FBF2320-07CD-46B0-83A5-570075E0B410}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AADD3A66-F0BF-4945-890F-4A86F18F5C96}
+	EndGlobalSection
+EndGlobal
