@@ -24,7 +24,6 @@ builder.Services.AddAuthorization(options =>
 
 builder.Services.AddControllers(options =>
 {
-    // Aplica o filtro de autorização global
     options.Filters.Add(new AuthorizeFilter("DefaultPolicy"));
 });
 
@@ -41,6 +40,18 @@ builder.Services.ApplyInfraConfiguration(connectionString);
 
 builder.Services.AddHttpContextAccessor();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigin", builder =>
+    {
+        builder
+            .WithOrigins("http://localhost:3000")
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials();
+    });
+});
+
 
 var app = builder.Build();
 
@@ -52,7 +63,9 @@ if (app.Environment.IsDevelopment())
     app.ApplyMigrations();
 }
 
+app.UseCors("AllowSpecificOrigin");
 app.UseMiddleware<CurrentUserMiddleware>();
+app.UseMiddleware<ErrorHandlerMiddleware>();
 
 app.MapGroup("api/Identity").MapIdentityApi<User>();
 

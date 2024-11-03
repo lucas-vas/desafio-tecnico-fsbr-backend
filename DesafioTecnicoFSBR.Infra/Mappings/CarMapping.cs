@@ -26,7 +26,7 @@ namespace DesafioTecnicoFSBR.Infra.Mappings
 
             builder.Property(x => x.Value)
             .HasColumnName("VALUE")
-            .HasColumnType("DECIMAL")
+            .HasColumnType("DECIMAL(10,2)")
             .IsRequired();
 
             builder.Property(x => x.BrandId)

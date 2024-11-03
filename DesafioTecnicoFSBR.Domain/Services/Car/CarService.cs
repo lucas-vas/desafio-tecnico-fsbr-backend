@@ -1,5 +1,4 @@
-﻿using DesafioTecnicoFSBR.Domain.Entities;
-using DesafioTecnicoFSBR.Domain.Exceptions;
+﻿using DesafioTecnicoFSBR.Domain.Exceptions;
 using DesafioTecnicoFSBR.Domain.Interfaces.Repositories;
 using DesafioTecnicoFSBR.Domain.Interfaces.Services;
 
@@ -25,7 +24,7 @@ namespace DesafioTecnicoFSBR.Domain.Services.Car
         {
             var brand = await GetBrand(brandId: brandId, cancellationToken: cancellationToken);
 
-            await ValidateExistence(modelDescription: modelDescription, year: year, cancellationToken: cancellationToken);
+            await ValidateExistence(modelDescription: modelDescription, year: year, value: value, brandId: brandId, cancellationToken: cancellationToken);
 
             var car = Entities.Car.Create
             (
@@ -52,7 +51,7 @@ namespace DesafioTecnicoFSBR.Domain.Services.Car
         {
             var brand = await GetBrand(brandId: brandId, cancellationToken: cancellationToken);
 
-            await ValidateExistence(modelDescription: modelDescription, year: year, cancellationToken: cancellationToken);
+            await ValidateExistence(modelDescription: modelDescription, year: year, value: value, brandId: brandId,cancellationToken: cancellationToken);
 
             var car = await GetCar(id: id, cancellationToken: cancellationToken);
 
@@ -81,17 +80,21 @@ namespace DesafioTecnicoFSBR.Domain.Services.Car
         (
             string modelDescription,
             int year,
+            double value,
+            Guid brandId,
             CancellationToken cancellationToken
         )
         {
             bool existCarRegistered = await _carRepository.Exist
             (
                 car => car.ModelDescription.ToUpper().Equals(modelDescription.ToUpper()) &&
-                car.Year == year,
+                car.Year == year &&
+                car.Value == value &&
+                car.BrandId == brandId,
                 cancellationToken: cancellationToken
             );
 
-            DomainException.When(existCarRegistered, "Já existe cadastro de um carro com esta descrição de modelo e do mesmo ano");
+            DomainException.When(existCarRegistered, "Já existe cadastro de um carro com estas características");
         }
 
         private async Task<Entities.Brand> GetBrand

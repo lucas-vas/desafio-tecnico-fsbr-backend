@@ -1,25 +1,25 @@
 ﻿using DesafioTecnicoFSBR.Application.Features.Brand.Responses;
+using DesafioTecnicoFSBR.Application.Utils.Wrappers;
 using DesafioTecnicoFSBR.Domain.Interfaces.Services;
 using DesafioTecnicoFSBR.Infra.Integration.Uow;
 using MediatR;
-using DesafioTecnicoFSBR.Application.Utils.Wrappers;
 
-namespace DesafioTecnicoFSBR.Application.Features.Brand.Commands.Create
+namespace DesafioTecnicoFSBR.Application.Features.Brand.Commands.Update
 {
-    public sealed class CreateBrandHandler
+    internal sealed class UpdateBrandHandler
     (
         IBrandService brandService,
         IUnitOfWork unitOfWork
-    ) : IRequestHandler<CreateBrandCommand, Response<BrandResponse>>
+    ) : IRequestHandler<UpdateBrandCommand, Response<BrandResponse>>
     {
         private readonly IBrandService _brandService = brandService;
         private readonly IUnitOfWork _unitOfWork = unitOfWork;
 
-        public async Task<Response<BrandResponse>> Handle(CreateBrandCommand request, CancellationToken cancellationToken)
+        public async Task<Response<BrandResponse>> Handle(UpdateBrandCommand request, CancellationToken cancellationToken)
         {
-            var brand = await _brandService.Create(name: request.Name, cancellationToken: cancellationToken);
-
+            var brand = await _brandService.Update(id: request.Id, name: request.Name, cancellationToken: cancellationToken);
             await _unitOfWork.CommitAsync(cancellationToken);
+
             var brandResponse = BrandResponse.MapFromTheEntity(brand);
 
             return Response<BrandResponse>.Success(brandResponse);

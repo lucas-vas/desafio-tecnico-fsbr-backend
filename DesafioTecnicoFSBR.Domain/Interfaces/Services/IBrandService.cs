@@ -7,5 +7,18 @@
             string name,
             CancellationToken cancellationToken
         );
+
+        Task<Entities.Brand> Update
+        (
+            Guid id,
+            string name,
+            CancellationToken cancellationToken
+        );
+
+        Task Delete
+        (
+            Guid id,
+            CancellationToken cancellationToken
+        );
     }
 }

@@ -11,12 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Brand\Commands\Delete\" />
-    <Folder Include="Features\Brand\Commands\Update\" />
-    <Folder Include="Features\Brand\Queries\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\DesafioTecnicoFSBR.Domain\DesafioTecnicoFSBR.Domain.csproj" />
     <ProjectReference Include="..\DesafioTecnicoFSBR.Infra\DesafioTecnicoFSBR.Infra.csproj" />
   </ItemGroup>

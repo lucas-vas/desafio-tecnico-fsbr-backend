@@ -3,6 +3,7 @@ using DesafioTecnicoFSBR.Domain.Interfaces.Services;
 using Entities = DesafioTecnicoFSBR.Domain.Entities;
 using DesafioTecnicoFSBR.Infra.Integration.Uow;
 using MediatR;
+using DesafioTecnicoFSBR.Application.Utils.Wrappers;
 
 namespace DesafioTecnicoFSBR.Application.Features.Car.Commands.Create
 {
@@ -10,12 +11,12 @@ namespace DesafioTecnicoFSBR.Application.Features.Car.Commands.Create
     (
         ICarService carService,
         IUnitOfWork unitOfWork
-    ) : IRequestHandler<CreateCarCommand, CarResponse>
+    ) : IRequestHandler<CreateCarCommand, Response<CarResponse>>
     {
         private readonly ICarService _carService = carService;
         private readonly IUnitOfWork _unitOfWork = unitOfWork;
 
-        public async Task<CarResponse> Handle(CreateCarCommand request, CancellationToken cancellationToken)
+        public async Task<Response<CarResponse>> Handle(CreateCarCommand request, CancellationToken cancellationToken)
         {
             var car = await _carService.Create
             (
@@ -27,10 +28,9 @@ namespace DesafioTecnicoFSBR.Application.Features.Car.Commands.Create
             );
 
             await _unitOfWork.CommitAsync(cancellationToken);
-
             var carResponse = CarResponse.MapFromTheEntity(car);
 
-            return carResponse;
+            return Response<CarResponse>.Success(carResponse);
         }
     }
 }
